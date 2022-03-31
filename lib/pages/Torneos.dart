@@ -5,7 +5,9 @@ import 'package:provider/provider.dart';
 import 'package:clubapi/providers/torneo_provider.dart';
 import 'package:http/http.dart' as http;
 
-
+Future<void> _refresh(){
+  return Future.delayed(Duration(seconds: 0),);
+}
 class Torneos extends StatelessWidget {
   const Torneos({Key? key}) : super(key: key);
 
@@ -13,6 +15,7 @@ class Torneos extends StatelessWidget {
   Widget build(BuildContext context) {
     final torneoProvider = Provider.of<TorneosProvider>(context);
     final torneos = torneoProvider.displayTorneos;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue,
@@ -121,14 +124,14 @@ class Torneos extends StatelessWidget {
                       ), //Textstyle
                     ),
                     //SizedBox
-                     //SizedBox
-                    ],
+                    //SizedBox
+                  ],
                 ), //Column
               ), //Padding
             ), //SizedBox
           ),
           separatorBuilder: (_, __) => Divider(),
-          itemCount:torneos.length)
+          itemCount:torneos.length),
 
 
     );

@@ -226,14 +226,19 @@ class RegisterTorneos extends StatelessWidget {
 
 void _showDialog(BuildContext context) {
   showDialog(
+
+
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
+
         title: new Text("Exito"),
-        content: new Text("Se ha registrad un nuevo Torneo"),
+        content: new Text("Se ha registrado un nuevo Torneo, es necesario volver abrir la aplicacion"),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
         actions: <Widget>[
           new FlatButton(
-            child: new Text("OK"),
+            child: new Text("Vale"),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => Home()
@@ -245,6 +250,7 @@ void _showDialog(BuildContext context) {
     },
   );
 }
+
 
 
 

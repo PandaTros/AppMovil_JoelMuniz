@@ -151,8 +151,9 @@ class RegisterClubs extends StatelessWidget {
                 hoverColor: Colors.lightBlue,
                 onPressed: (){
                   _futureclub = createclub(nombreController.text, direccionController.text, telefonoController.text, horarioController.text, imagenController.text);
+                  _showDialog(context);
 
-                 _showDialog(context);
+
                 },
                 child: Text('Registrar',
                   style: TextStyle(
@@ -184,14 +185,19 @@ class RegisterClubs extends StatelessWidget {
 
 void _showDialog(BuildContext context) {
   showDialog(
+
+
     context: context,
     builder: (BuildContext context) {
       return AlertDialog(
+
         title: new Text("Exito"),
-        content: new Text("Se ha registrad un nuevo Club"),
+        content: new Text("Se ha registrado un nuevo Club, es necesario volver abrir la aplicacion"),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(20))),
         actions: <Widget>[
           new FlatButton(
-            child: new Text("OK"),
+            child: new Text("Vale"),
             onPressed: () {
               Navigator.of(context).push(MaterialPageRoute(
                   builder: (context) => Home()
@@ -203,3 +209,4 @@ void _showDialog(BuildContext context) {
     },
   );
 }
+
